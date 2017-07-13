@@ -4,21 +4,21 @@
 
 ## 内容目录
 
-[toc]
+ [toc]
 
-###一、 写出html和css的注释	
+### 一、 写出html和css的注释	
 
 > 1.html注释 <！---->
-2.css注释 /**/
+> 2.css注释 /**/
 
-###二、写出伪类选择符的正确顺序。
+### 二、写出伪类选择符的正确顺序。
 
 > 1.a:link (超链接的初始状态)
-2.a:visited (超链接被访问后的状态)
-3.a:hover (鼠标划过超链接时的状态)
-4.a:active (鼠标按下时超链接的状态)
+> 2.a:visited (超链接被访问后的状态)
+> 3.a:hover (鼠标划过超链接时的状态)
+> 4.a:active (鼠标按下时超链接的状态)
 
-###三、HTML5 基本结构
+### 三、HTML5 基本结构
 
 	<!doctype html> 命名文档类型
 	<html> 说明我们写的是标记语言
@@ -30,25 +30,25 @@
 	</body>
 	</html>
 
-###四、HTML基本语法（1.常规标记<常规标记> 2.空标记 ）
+### 四、HTML基本语法（1.常规标记<常规标记> 2.空标记 ）
 
 > 常规标记：<标记 属性="属性值"  属性="属性值"></标记>
 
 > 空标记：<标记 属性="属性值" />
 
-###五、创建内部样式的语法：
+### 五、创建内部样式的语法：
 
 	<style type="text/css"></style>
 
-###六、写出CSS语法
+### 六、写出CSS语法
 
 > 选择符{属性:属性值; 属性:属性值;}
 
-###七、外部样式一种调用方法
+### 七、外部样式一种调用方法
 
 	<link rel="stylesheet" type="text/css" href="css文件路径"/>
 
-###八、CSS选择符大概包括哪几种，分别写出ID选择符、CLASS选择符、包含选择符，群组选择符的语法。
+### 八、CSS选择符大概包括哪几种，分别写出ID选择符、CLASS选择符、包含选择符，群组选择符的语法。
 
 > CSS选择符：元素选择符，id选择符，class选择符，群组选择符，包含选择符，伪类选择符...
 
@@ -64,7 +64,7 @@
 
 > 伪类选择符：a:link{属性：属性值;}  a:visited{属性：属性值;}  a:hover{属性：属性值;}  a:active{属性：属性值;}
 
-###九、相对路径的三种写法。
+### 九、相对路径的三种写法。
 
 > 1.当当前文件与目标文件在同一目录下，写法如下：目标文件文件名+扩展名；
 
@@ -72,7 +72,7 @@
 
 > 3.当当前文件所处的文件夹和目标文件所处的文件夹在同一目录下，写法如下：../目标文件所处文件夹名/目标文件文件名+扩展名
 
-###十、超链接写法。
+### 十、超链接写法。
 
 	<a href="目标文件路径及全称/链接地址">链接文本/图片</a>
 	
@@ -80,7 +80,7 @@
 	
 	<a href="#" target="_blank">新窗口打开</a>
 
-###十一、多行文本框（文本域）
+### 十一、多行文本框（文本域）
 
 	textarea文本域
 	
@@ -94,11 +94,11 @@
 		horizontal(用户可调整元素的宽度)
 		vertical(用户可调整元素的高度)
 
-###十二、下拉菜单
+### 十二、下拉菜单
 
 	select/option下拉选框
 
-###十三、写出单选按钮并默认选中
+### 十三、写出单选按钮并默认选中
 
 	checked  在页面加载时默认选定的 input元素。
 		<input type="radio" name="" checked/>
@@ -108,27 +108,27 @@
 		<input type="radio" name="" disabled/>
 		或者disabled="disabled"
 
-###十四、边框属性及属性值
+### 十四、边框属性及属性值
 
 > border-top-width(边框宽度)
-border-top-style(边框样式)
-border-top-color(边框颜色)
-边框的方向：top(上边)  bottom(下边)  left(左边)  right(右边)
-边框的线型：solid:实线，dashed:虚线，dotted:点状线，double:双线，none:没有边框;
+> border-top-style(边框样式)
+> border-top-color(边框颜色)
+> 边框的方向：top(上边)  bottom(下边)  left(左边)  right(右边)
+> 边框的线型：solid:实线，dashed:虚线，dotted:点状线，double:双线，none:没有边框;
 
-###十五、加粗属性及属性值
+### 十五、加粗属性及属性值
 
 > font-weight:normal(正常)/bold(加粗)/bolder(加粗)/100-900(100-500为常规字体，600-900为加粗字体)
 
-###十六、水平对齐属性及属性值。
+### 十六、水平对齐属性及属性值。
 
 > text-align:left/right/center/justify（两端对齐中文不起作用）
 
-###十七、垂直对齐属性及属性值。
+### 十七、垂直对齐属性及属性值。
 
 > vertical-align:top（顶端）/middle（中间）/bottom（底部）
 
-###十八、背景属性及属性值
+### 十八、背景属性及属性值
 
 > 选择符{background-color:颜色值;}
 
@@ -140,11 +140,11 @@ border-top-color(边框颜色)
 
 > 选择符{background-attachment:scroll(滚动)/fixed(固定);}
 
-###十九、浮动属性及属性值
+### 十九、浮动属性及属性值
 
 > float:none(没有)/left(左边)/right(右边)
 
-###二十、清除浮动的方法（至少三种）
+### 二十、清除浮动的方法（至少三种）
 
 	1.万能清除法：
 		选择符：after{content:"."; clear:both; display:block; height:0; overflow:hidden; visibility:hidden;}
@@ -163,7 +163,7 @@ border-top-color(边框颜色)
 	4.overflow:hidden
 		给父元素添加声明{overflow:hidden;}
 
-###二十一、定位属性及属性值（标明相对于谁定位）
+### 二十一、定位属性及属性值（标明相对于谁定位）
 
 > position:static/relative/absolute/fixed
 
@@ -176,7 +176,7 @@ border-top-color(边框颜色)
 
 > 4.fixed：固定定位，对象定位遵从绝对定位方式（absolute）；但是要遵守一些规范（IE6浏览器不支持此定位）根据浏览器的窗口来定义自己的位置。
 
-###二十二、兼容最小高度的两种写法
+### 二十二、兼容最小高度的两种写法
 
 > 兼容元素具备最小高度自适应的方法：
 
@@ -184,7 +184,7 @@ border-top-color(边框颜色)
 
 > hack2:min-height:value; height:auto!important; height:value;(建议使用)
 
-###二十三、怎样使一个宽为200px和高为200px的盒子，水平垂直居中于浏览器中?写出CSS样式代码
+### 二十三、怎样使一个宽为200px和高为200px的盒子，水平垂直居中于浏览器中?写出CSS样式代码
 
 	box{ width:200px;
 	height:200px;
@@ -195,7 +195,7 @@ border-top-color(边框颜色)
 	margin-left:-100px;
 	margin-top:-100px;}
 
-###二十四、雪碧图的好处，并写明利用哪个属性进行操作
+### 二十四、雪碧图的好处，并写明利用哪个属性进行操作
 
 > 雪碧图优点：
 
@@ -214,7 +214,7 @@ IE6不会主动预加载鼠标滑过即a:hover中的背景图片，所以，如�
 	
 > 雪碧图利用background-position属性进行操作
 
-###二十五、说明块和内嵌以及Inline-block的区别，并列举所知道的block，inline以及inline-block类型的标签
+### 二十五、说明块和内嵌以及Inline-block的区别，并列举所知道的block，inline以及inline-block类型的标签
 
 > display:block
 
