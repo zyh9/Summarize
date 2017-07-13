@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ul{
+	position: relative;
+	overflow: hidden;
+	height: 150px;
+	width: 800px;
+	margin: 200px auto 0;
+}
+li{
+	position: relative;
+	top: 0;
+	left: 0;
+	float: left;
+}
+img{
+	display: block;
+	border: 0;
+	vertical-align: top;
+	width: 100px;
+	height: 150px;
+}
+</style>
+<body>
+	<ul id="list">
+		<li>
+			<img src="img/0.jpg"/>
+			<img src="img/0.jpg"/>
+		</li>
+		<li>
+			<img src="img/0.jpg"/>
+			<img src="img/0.jpg"/>
+		</li>
+		<li>
+			<img src="img/10.jpg"/>
+		</li>
+		<li>
+			<img src="img/0.jpg"/>
+			<img src="img/0.jpg"/>
+		</li>
+		<li>
+			<img src="img/0.jpg"/>
+			<img src="img/0.jpg"/>
+		</li>
+		<li>
+			<img src="img/10.jpg"/>
+		</li>
+		<li>
+			<img src="img/0.jpg"/>
+			<img src="img/0.jpg"/>
+		</li>
+		<li>
+			<img src="img/0.jpg"/>
+			<img src="img/0.jpg"/>
+		</li>
+	</ul>
+</body>
+<script type="text/javascript" src="js/Mtween.js"></script>
+<script type="text/javascript">
+	var list = document.getElementById('list');
+	var lis = list.getElementsByTagName('li');
+	var timer = null;
+//	耿直的初始化
+//	lis[0].getElementsByTagName('img')[0].src = 'img/'+fn()[0]+'.JPG';
+//	lis[1].getElementsByTagName('img')[0].src = 'img/'+fn()[1]+'.JPG';
+//	lis[3].getElementsByTagName('img')[0].src = 'img/'+fn()[3]+'.JPG';
+//	lis[4].getElementsByTagName('img')[0].src = 'img/'+fn()[4]+'.JPG';
+//	lis[6].getElementsByTagName('img')[0].src = 'img/'+fn()[6]+'.JPG';
+//	lis[7].getElementsByTagName('img')[0].src = 'img/'+fn()[7]+'.JPG';
+	//时间初始化
+	for(var i=0;i<lis.length;i++){
+		if(i==2||i==5){
+			continue;
+		}
+		lis[i].getElementsByTagName('img')[0].src = 'img/'+fn()[i]+'.JPG';
+	}
+	timer = setInterval(fnTime, 1000);
+	//获取时间
+	function fn(){
+		var date = new Date();
+		var h = date.getHours();
+		var m = date.getMinutes();
+		var s = date.getSeconds();
+		var str = '';
+		str = two(h)+':'+two(m)+':'+two(s);
+		function two(n){
+			return n<10?'0'+n:''+n;
+		}
+		return str;
+	}
+	function fnTime(){
+		for(var i=0;i<lis.length;i++){
+			fn2(i);
+		}
+	}
+	//先做出第一个，然后传参
+	function fn2(n){
+		//调用时间
+		var now = fn();
+		var imgs1 = lis[n].getElementsByTagName('img')[0];
+		var imgs2 = lis[n].getElementsByTagName('img')[1];
+		//判断str的第几个等于':',然后给其图片地址,并给其设定1/2秒切换一次
+		//不是':'的,判断哪个可以动
+		if(now[n]==':'){
+			imgs1.src = 'img/10.JPG';
+			setTimeout(function(){
+				imgs1.src= 'img/11.JPG';
+			},500)
+		}else{
+			imgs2.src = 'img/'+now[n]+'.JPG';
+			if(imgs1.src!=imgs2.src){
+				move({
+					obj:lis[n],
+					attrs:{top:-150},
+					duration:800,
+					callBack:function(){
+						imgs1.src=imgs2.src;
+						lis[n].style.cssText = '';
+					}
+				})
+			}
+		}
+	}
+</script>
+</html>
