@@ -4,18 +4,22 @@
 
 ## 内容目录
 
- [toc]
+  [toc]
 
 ### 一、 写出html和css的注释	
 
 > 1.html注释 <！---->
+
 > 2.css注释 /**/
 
 ### 二、写出伪类选择符的正确顺序。
 
 > 1.a:link (超链接的初始状态)
+
 > 2.a:visited (超链接被访问后的状态)
+
 > 3.a:hover (鼠标划过超链接时的状态)
+
 > 4.a:active (鼠标按下时超链接的状态)
 
 ### 三、HTML5 基本结构
@@ -111,9 +115,13 @@
 ### 十四、边框属性及属性值
 
 > border-top-width(边框宽度)
+
 > border-top-style(边框样式)
+
 > border-top-color(边框颜色)
+
 > 边框的方向：top(上边)  bottom(下边)  left(左边)  right(右边)
+
 > 边框的线型：solid:实线，dashed:虚线，dotted:点状线，double:双线，none:没有边框;
 
 ### 十五、加粗属性及属性值
