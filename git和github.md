@@ -33,7 +33,7 @@
 ### 4. 创建github账号 (邮箱确认)
 			
 ### 5. 捆绑(git与github)
-	(1)	获取秘钥
+	(1) 获取秘钥
 	
 		ssh-keygen -t rsa -C "注册邮箱"
 		
