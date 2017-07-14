@@ -1,5 +1,7 @@
-var box  = document.getElementById('box');
-box.addEventListener('mousedown',function(ev){
-	var l = ev.clientX - this.offsetLeft;
-	var t = ev.clientY - this.offsetTop;
-})
+document.addEventListener('mousemove',Move);
+	function Move(){
+		var dl = ev.clientX - l;
+		var dt = ev.clientY - t;
+		box.style.left = dl+'px';
+		box.style.top = dt+'px';
+	}
