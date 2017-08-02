@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+			#box{
+				height: 200px;
+				padding: 0 200px;
+			}
+			.con{
+				width: 100%;
+				height: 200px;
+				background: red;
+				float: left;
+			}
+			.left,.right{
+				width: 200px;
+				height: 200px;
+				float: left;
+				position: relative;
+			}
+			.left{
+				background: yellow;
+				margin-left: -100%;
+				left: -200px;
+			}
+			.right{
+				background: blue;
+				margin-left: -200px;
+				right: -200px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--中间优先渲染且自适应，两侧有固定宽度，并给与浮动-->
+		<!--利用负边距将两个小盒子移动到左右两侧，但此时中间盒子会被左右盒子压上一部分-->
+		<!--利用padding给出左右的宽度(就是小盒子的宽度)-->
+		<!--然后两侧小盒子相对定位到中间盒子两侧即可-->
+		<div id="box">
+			<div class="con"></div>
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+	</body>
+</html>
