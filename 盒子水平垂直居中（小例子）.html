@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      /*方法4*/
+      /*body{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }*/
+      #box{
+        width: 100px;
+        height: 100px;
+        background: red;
+        /*方法1*/
+        /*position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -50px;
+        margin-top: -50px;*/
+        /*方法2*/
+        /*position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);*/
+        /*方法3*/
+        /*position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;*/
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+  </body>
+</html>
