@@ -29,19 +29,20 @@
 				$ npm install style-loader css-loader -S
 				
 				安装插件
-				npm install 插件名 -S
+				$ npm install html-webpack-plugin extract-text-webpack-plugin -S
+				$ npm install webpack-dev-server open-browser-webpack-plugin -D
 			
 			6.执行打包任务
 				在package.json中进行相关设置即可
 			
 				"scripts": {
 	    			"start": "webpack" 
-	    			//配置的地方就是这里啦，相当于把npm的start命令指向webpack命令
+	    			//相当于把npm的start命令指向webpack命令
 	  			}
 				npm的start是一个特殊的脚本名称，它的特殊性表现在，
 				在命令行中使用npm start就可以执行相关命令，
 				如果对应的此脚本名称不是start，想要在命令行中运行时，
-				需要这样用npm run {script name}
+				需要这样用npm run 脚本名称
 			*/
 		</script>
 	</body>
