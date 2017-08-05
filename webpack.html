@@ -21,9 +21,7 @@
 			
 			5.
 				安装bable
-			
 				$ npm install babel-loader babel-core babel-preset-env -S
-				//$ npm install babel-loader babel-core babel-preset-env -save
 			
 				安装css
 				$ npm install style-loader css-loader -S
@@ -31,6 +29,13 @@
 				安装插件
 				$ npm install html-webpack-plugin extract-text-webpack-plugin -S
 				$ npm install webpack-dev-server open-browser-webpack-plugin -D
+				
+				dependencies和devDependencies两项，
+				分别指定了项目运行所依赖的模块、项目开发所需要的模块。
+				npm install babel-loader --save  
+				npm install babel-loader --save-dev  
+				--save参数表示将该模块写入dependencies属性，
+				--save-dev表示将该模块写入devDependencies属性。
 			
 			6.执行打包任务
 				在package.json中进行相关设置即可
