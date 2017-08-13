@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			1.获取元素
+			
+				通过id
+					document.getElementById('id名')
+				
+				通过class
+					document(元素).getElementsByClassName('class名')
+					获取到的是元素集合（类数组）,[0]数字下标取值，从0开始，length:数据个数,动态性
+				
+				通过tag(标签名)
+					document(元素).getElementsByTagName('tag名') 	
+					获取到的是元素集合（类数组）,[0]数字下标取值，从0开始，length:数据个数,动态性
+				
+				通过css选择器
+					document(元素).querySelector('css选择器')
+					在某个范围下，通过css选择器获取符合条件的第一个元素，静态性
+					document(元素).querySelectorAll('css选择器')
+					在某个范围下，通过css选择器获取符合条件的所有元素，静态性
+				
+				拓展
+					div~p:div和p是兄弟关系,div后边的所有p
+				 	div+p:div和p是兄弟关系,div后边紧挨着的第一个p
+				 	div p:div和p是父子，孙子关系，div内部的所有p
+				 	div>p:div和p是父子关系，div内部第一级所有p
+		
+		2.变量
+		 	
+		 	作用：存储数据，复用数据，简化代码
+		 	
+		 	命名规范
+	 			1.首位可以是字母，下划线(_)，美元符($)，首位不能是数字
+		 		2.除了首位可以是字母，数字，下划线(_)，美元符($)
+		 		3.不能用关键字和保留字
+		 		4.区分大小写
+		 		5.长度任意
+		 			
+		 	命名建议：
+		 		语义化，小驼峰
+		 			
+		3.函数
+	 		
+	 		作用：复用多行代码
+	 		
+	 		有名函数
+	 			
+	 			声明(最常用)
+	 				function 函数名(){
+	 					代码写这里
+	 				}
+	 			
+	 			调用
+	 				
+	 				直接调用
+	 					函数名()
+	 					举例：function fn(){
+								alert(1)
+							}
+							fn();
+	 				
+	 				事件调用
+	 					不写()，不然还没点击，就执行了
+	 					举例：function fn(){
+								alert(2)
+							}
+							div.onclick = fn;
+							
+	 		匿名函数
+	 			
+	 			声明
+	 				1.不能直接声明，会报错
+	 				2.声明在事件后(最常用)
+		 				举例：div.onclick = function(){
+								alert(3)
+							}
+	 				3.变量后声明
+		 				举例：var fn2 = function(){
+								alert(3)
+							}
+							fn2();
+	 				4.函数自执行
+		 				(function(){
+							alert(4);
+						})()
+					
+		4.属性操作
+		
+			属性操作
+			
+				操作的是行间属性，可读可写
+				
+				通过.的方式
+					不满足小驼峰命名，带-，去掉-,后边单词首字符大写
+					div.style.backgroundColor='red';
+					
+				通过[]的方式
+					变量必须用[]
+					var w = 'width'
+					div.style[w] = '100px';
+				
+			常用属性
+			
+				标准
+				innerHTML-识别子标签
+				
+			 	非标准
+			 	innerText-不识别子标签
+				outerHTML-包括自身标签
+				outerText-不包括自身标签
+				
+		5.if条件判断
+			 	
+		 	判断条件转化成布尔值
+		 	
+		 		if(判断条件){
+		 			true:执行这里代码
+		 		}
+
+		 		if(判断条件){
+		 			true:执行这里代码
+		 		}else{
+		 			false:执行这里代码
+		 		}
+
+		 		if(判断条件1){
+		 			判断条件1成立执行的代码
+		 		}else if(判断条件2){
+		 			判断条件2成立执行的代码
+		 		}else if(判断条件3){
+		 			判断条件3成立执行的代码
+		 		}else{
+		 			都不成立执行的代码
+		 		}
+			 		
+			 	拓展
+				 	n++是先使用n的数值再自加一
+	   				++n是先自加一再使用n累加后的数值
+					作为for语句括号内的第三项，是在每次for循环之后做的累加，n++与++n的作用都是使n的数值+1，
+					不牵扯到引用自加前还是自加后数值的问题，所以二者在for语句中没有区别。
+					
+		6.for
+		
+	 		重复做的事交给电脑执行
+	 		
+	 		for(初始化变量;判断条件;条件改变){
+	 			条件成立执行的代码
+	 		}
+	 		
+	 		1.初始化变量
+	 		2.判断条件
+	 		3.条件成立执行的代码
+	 		4.条件改变
+	 		5.判断条件->执行代码->条件改变(直到不满足条件，循环终止)
+		
+		7.取模(%)
+		
+			举例1：
+				a>b
+				a%b = 余数
+				10%3 = 1
+			举例2：
+				a=b或b的整数倍
+				a%b = 0
+				4%2 = 0
+			举例3：
+				a<b
+				a%b = a
+				2%3 = 2
+			
+		8.this
+		
+			指向调用它的对象
+			 		
+			函数外
+			 	alert(this)->window
+			函数内
+	 			事件处理函数内直接调用
+	 				元素.onclick = function(){
+	 					this->元素	
+	 				}
+	 			函数调用
+	 				function fn(){
+	 					this
+	 				}
+	 				元素.onclick = function(){
+	 					fn()->window
+	 				}
+	 				
+	 	9.自定义属性
+	 	
+	 		非空对象可以加自定义属性
+	 		元素对象.自定义属性名 = 值
+	 		存数据，可以存任何数据类型，字符串，数字，布尔值，对象
+	 		数据私有化
+			 		
+		10.数组
+		
+	 		存多个数据，有序性
+	 		var arr = [];
+	 		数字下标取值arr.[0]
+	 		数据个数：arr.length
+	 	*/
+		</script>
+	</body>
+</html>

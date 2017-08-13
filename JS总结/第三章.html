@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			1.重复型定时器：
+			
+			 	每隔多少毫秒执行一次
+			 		
+			 	开启重复型定时器：setInterval(函数,时间间隔,实参...)
+			 	
+			 	参数：
+			 	函数：每次执行的代码
+			 	时间间隔：单位毫秒，1秒=1000毫秒
+			 	实参：第3个参数往后，是传给函数的实参
+			 	定时器返回值是数字类型的，从1开始往后排的编号，每次开启定时器都是新编号， 不管开启的是什么类型定时器
+			 	关闭重复型定时：	clearInterval(定时器编号)
+			 	
+			2.延时型定时器：
+			 	
+			 	延时多少毫秒只执行一次
+			 		
+			 	开启延时型定时器：setTimeout(函数,延时时间,实参...)
+			 	
+			 	参数：
+			 	函数：要执行的代码
+			 	延迟时间：单位毫秒，1秒=1000毫秒
+			 	实参：第3个参数往后，是传给函数的实参
+			 	关闭延时型定时：	clearTimeout(定时器编号)
+			 	
+			3.改变函数的this指向
+			
+				函数.call(新this,实参1,实参2...)
+				函数.apply(新this,[实参1,实参2...])
+					apply第二个参数可以传数组,也可以是arguments
+					call和apply会让函数执行
+				函数.bind(新this)
+					返回改了this执行的新函数，原函数的this没变，原函数也没执行
+					
+			4.系统时间对象
+			
+				new Date(); //当前系统的时间对象
+				
+				获取时间
+				
+					getFullYear() - 年
+					getMonth() - 月，月份从0开始，获取到的比实际月份小1
+					getDay()- 星期几，周日是0
+					getDate() - 日
+					getHours() - 小时
+					getSeconds() - 秒
+					getMilliseconds - 毫秒
+					时间戳：
+						getTime() - 当前时间到1970年1月1日0时0分0秒的毫秒差
+					
+					注意事项：
+						用getMonth()得到的月份，一月是从0开始计算的。因此，例如当前为5月份，则用getMonth()得到的是4。
+						用getDay()获得的星期几，得到的是一个数值。如果当前时间是星期天，则得到数字0。
+						
+					天：Math.floor(t/86400)
+					时：Math.floor(t%86400/3600)
+					分：Math.floor(t%86400%3600/60)
+					秒：t%60
+					
+				设置时间
+					setFullYear() - 年
+					setMonth() - 月，设置时实际月份-1
+					setDate() - 日
+					setHours() - 小时
+					setSeconds() - 秒
+					setMilliseconds - 毫秒
+					时间戳：
+						setTime() - 当前时间到1970年1月1日0时0分0秒的毫秒差
+			*/
+		</script>
+	</body>
+</html>
