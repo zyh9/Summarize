@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			1.string.indexOf(s,[pos]):返回某个字符或字符串在整个字符串中第一次出现的位置(数字下标)
+				参数：
+					s:指定字符,可以是1个也可以是多个连续字符
+					[pos]:可选，number,从哪一位开始查看，默认是0
+					1.找到，返回指定字符位置(第一次出现)数字下标
+					2.没找到，返回-1
+					3.从左往右查找
+					4.只返回第一次出现的位置
+					
+			2.string.lastIndexOf(s,[pos]):返回某个字符或字符串在整个字符串中第一次出现的位置(数字下标)
+				参数：
+					s:指定字符,可以是1个也可以是多个连续字符
+					[pos]:可选，number,从哪一位开始查看，默认是最后一位
+					1.找到，返回指定字符位置(第一次出现)数字下标
+					2.没找到，返回-1
+					3.从右往左查找
+					4.只返回第一次出现的位置
+					
+			3.string.slice(start,[end]):截取指定范围的字符片段
+				参数：
+					start:起始位置
+			 		[end]:可选，终止位置，默认最后一位
+					1.不传参数，返回完整字符串
+					2.截取到，返回截取到的字符串
+					3.截取后不改变原字符串，返回的是新字符串
+					4.没截取到，返回空字符串
+					5.负数，字符串长度+负数
+					6.不包含结束位置
+					slice(n, m)//截取从第n位起，到m位结束的字符。如果没有m，就默认截取到最后一位。
+					str.slice(-2)//截取的是从最后一位截取到倒数第二位。-1代表的是最后一位字符串。
+					str.slice(-4, -2)//截取的是倒数第四位到倒数第二位的字符串。
+					str.slice(0, 2)和str.slide(2, 0)//结果不一样。因为slice()方法，不会判断里面参数的大小并交换参数位置。所以，后者找不到结果。
+					
+			4.string.substring(start,[end]):截取指定范围的字符片段
+				参数：
+					start:起始位置
+			 		[end]:可选，终止位置，默认最后一位
+					1.不传参数，返回完整字符串
+					2.截取到，返回截取到的字符串
+					3.截取后不改变原字符串，返回的是新字符串
+					4.没截取到，返回空字符串
+					5.如果参数为0，返回完整字符串(负数转成0)
+					6.end<start，会自动换过来
+					7.不包含结束位置
+					substring(n, m)截取从第n位起，到m位结束的字符。如果没有m，就默认截取到最后一位。
+					str.substring(2, 0);和str.substring(0, 2);的结果是一样的。
+					substring可以检测里面两个参数的大小，如果后面的参数小于前面的参数，它就把这两个参数自动颠倒过来。
+					如果括号里面什么参数都没有，就相当于从0位截取到最后一位，也就是整个字符串。如果参数中有负数的话，就当做0处理。
+					
+			5.string.substr(start,[length]):截取指定范围的字符片段
+				参数：
+			 		start:起始位置
+			 		[length]:截取个数，默认截取到最后一位
+					1.不传参数，返回完整字符串
+					2.截取到，返回截取到的字符串
+					3.截取后不改变原字符串，返回的是新字符串
+					4.没截取到，返回空字符串
+					5.负数，字符串长度+负数
+					substr(n,m])截取从第n位起，截取m个字符。如果没有m，就默认截取到最后一位。
+					
+			6.string.split(s):用指定字符分隔字符串，把结果放到数组里返回
+				参数：
+			 		s:分隔符
+					1.不传参，完整字符串作为一项放到数组里返回
+					2.分隔符是空字符串，字符串的每个字符作为一项，放到数组里
+					3.如果用第一位或者最后一位分隔，会有空字符串
+					4.用字符串中有的字符分隔，分隔的结果放到数组里
+					5.用字符串中没有的字符分隔，完整的字符串作为一项放数组里
+					var str = 'www.miaov.com'; str.split('.'); => ['www','miaov','com'];
+					var str1 = 'leo'; str1.split(); => ['leo'];
+					var str2 = 'leo'; str2.split(''); => ['l', 'e', 'o'];
+					var str3 = '/www.miaov.com/'; str3.split('/'); => ['', 'www.miaov.com', ''];
+					var str4 = '2013-11-29-23-07'; str4.split('-', 3); => ['2013', '11', '29'];
+					
+			7.array.join([p]):数组的每一项用拼接符拼成一个字符串返回
+				参数：
+			 		[p]：可选，拼接符，默认是逗号
+					1.不传参，每一项用逗号拼接
+					2.拼接符是空字符串，每一项直接拼接
+					3.拼接符拼接返回
+					var arr = ['aa','bb','cc'];
+					arr.join(); => 'aa,bb,cc'
+					arr.join(''); => 'aabbcc'
+					arr.join('-'); => 'aa-bb-cc'
+					
+			8.string.includes():ES6，字符串中是否有指定字符，返回boolean值
+			
+			9.string.toUpperCase():字符串每个字符转成大写
+			
+			10.string.toLowerCase():字符串每个字符转成小写
+			*/
+			/*
+			1.array.push(数据1,数据2...)
+			 	作用：
+			 		向数组的最后添加数据
+			 	参数：
+			 		添加的数据，多个数据间用逗号分隔
+			 	返回值：number
+			 		新数组的长度（多少个数据）
+			 		
+			2.array.pop()
+				作用：
+					删除数组最后一个数据
+				返回值：混合
+					删除的那一个数据
+					
+			3.array.shift()
+				作用：
+					删除数组第一位数据
+				返回值：混合
+					返回删除的那一个数据
+					
+			4.array.unshift(数据1,数据2...)
+			 	作用：
+			 		向数组的头部添加数据
+			 	参数：
+			 		添加的数据，多个数据之间用逗号分隔
+			 	返回值：number
+			 		新数组的长度
+			 		
+			5.array.indexOf(target,[start])
+			 	作用：
+			 		从指定位置开始查找数组里是否有指定值
+			 	参数：
+			 		target：要找的值
+			 		[start]:可选，起始位置，默认是0
+			 	返回值：number
+			 		1.找到返回位置下标
+			 		2.没找到返回-1
+			 		3.从左向右
+			 		
+			6.array.lastIndexOf(target,[start])
+			 	作用：
+			 		从指定位置开始查找数组里是否有指定值
+			 	参数：
+			 		target：要找的值
+			 		[start]:可选，起始位置，默认是最后一位
+			 	返回值：number
+			 		1.找到返回位置下标
+			 		2.没找到返回-1
+			 		3.从右向左
+			 		
+			7.array.includes(target)
+				作用：
+					数组里是否包含指定值
+				参数：
+					target:指定值
+				返回值：boolean
+					1.有,true
+					2.没有,false
+					3.===(比较数据类型)
+			 
+			8.array.slice(start,[end])
+			 	作用：
+			 		截取数组中的一段数据放新数组里返回
+			 	参数：
+			 		start：起始位置
+			 		[end]:终止位置，可选，默认到最后一位
+			 	返回值：array
+			 	    1.不传参数，返回完整新数组
+			 	    2.截取起始位置到终止位置的数据，不包含终止位置，放新数组里返回
+			 	    3.负数，长度+负数
+			 	   
+			9.array.splice(pos,length,val1,val2...)
+			 	作用：
+			 		添加，删除，替换
+			 	参数：
+			 		pos:位置
+			 		length:删除长度
+			 		val1,val2:添加数据，多个用逗号分隔
+			 	返回值：array
+			 		1.如果有删除，把删除项放到数组里返回
+			 		2.没删除，返回空数组
+			 		3.操作的是原数组
+			 		
+			10.array.concat(val1,val2...)
+				作用：
+					原数组和传入值放新数组里返回，连接2个数组
+				参数：
+					val1,val2:添加的数据，多个之间用逗号
+				返回值：array
+					1.原数组和新传入的值放到新数组里返回
+					2.不改变原数组
+					3.如果传入的是数组，会把原数组每项和传入数组的每项放到新数组里返回
+					
+			11.array.reverse()
+			 	作用：
+			 		数组数据前后颠倒顺序排序
+				返回值：array
+					排序后的原数组
+					
+			12.array.sort([fn])
+			 	作用：
+			 		数组每项排序
+			 	参数:
+			 		[fn]:处理函数，根据return后边的结果来返回所需数据
+			 	返回值：array
+			 		1.排序后的原数组
+			 		2.不传参数，按字符的ASCII码的大小排序
+			 		3.传入处理函数，根据return的结果排序
+					return a-b;//从小到大
+					return b-a;//从大到小
+					return Math.random()-0.5//随机
+					
+			13.Array.from(arr)
+				作用：	
+					ES6，把类数组，或者有length的对象转成真正的数组 
+				参数：
+					arr:类数组，或者有length对象
+						类数组：arguments，获取元素tag，class
+						
+			14.arr.forEach(fn,[this])
+				作用：
+					遍历数组
+				参数：
+					fn：处理函数
+						function(value,index,arr){}
+						value:数组每项值
+						index:索引
+						arr:数组
+						不可以break和continue，可以return
+					[this]:可选，处理函数的this指向
+				
+			15.arr.every(fn,[this])
+				作用：
+					每次都满足判断条件返回true，有一个不满足就返回false
+				参数：
+					fn：处理函数
+						function(value,index,arr){}
+						value:数组每项值
+						index:索引
+						arr:数组
+						return  判断条件
+					[this]:可选，处理函数的this指向
+			 
+			16.arr.some(fn,[this])
+				作用：
+					有一个都满足判断条件返回true，都不满足就返回false
+				参数：
+					fn：处理函数
+						function(value,index,arr){}
+						value:数组每项值
+						index:索引
+						arr:数组
+						return  判断条件
+					[this]:可选，处理函数的this指向
+			 
+			17.arr.map(fn,[this])
+				作用：
+					每次循环return后的执行结果成为每项，返回新数组
+				参数：
+					fn：处理函数
+						function(value,index,arr){}
+						value:数组每项值
+						index:索引
+						arr:数组
+						return  执行语句
+					[this]:可选，处理函数的this指向
+			 
+			18.arr.filter(fn,[this])
+				作用：
+					满足条件的项放到新数组里返回，没有满足项返回空数组
+				参数：
+					fn：处理函数
+			 			function(value,index,arr){}
+						value:数组每项值
+						index:索引
+						arr:数组
+						return  判断条件
+					[this]:可选，处理函数的this指向
+			 
+			19.arr.find(fn,[this])
+				作用：
+					满足条件的第一项返回，没有满足项返回undefined
+				参数：
+					fn：处理函数
+						function(value,index,arr){}
+						value:数组每项值
+						index:索引
+						arr:数组
+						return  判断条件
+					[this]:可选，处理函数的this指向
+			 
+			20.arr.findIndex(fn,[this])
+				作用：
+					返回满足条件的第一项的下标，如果没有满足项返回-1，ES6
+				参数：
+					fn：处理函数
+						function(value,index,arr){}
+						value:数组每项值
+						index:索引
+						arr:数组
+						return  判断条件
+					[this]:可选，处理函数的this指向
+			*/
+		</script>
+	</body>
+</html>
