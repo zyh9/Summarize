@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-size: 12px;
+				font-family: "微软雅黑";
+			}
+			img{
+				display: block;
+				border: 0;
+			}
+			#box{
+				width: 875px;
+				height: 550px;
+				background: url(img/pic.png) no-repeat;
+				position: relative;
+				margin: 100px auto 0;
+			}
+			#box_left{
+				width: 448px;
+				height: 245px;
+				position: absolute;
+				top: 110px;
+				left: 50px;
+			}
+			#box_left img{
+				width: 448px;
+				height: 245px;
+				cursor: pointer;
+			}
+			#box_right img{
+				width: 248px;
+				height: 245px;
+				cursor: pointer;
+			}
+			#box_right{
+				width: 248px;
+				height: 245px;
+				position: absolute;
+				top: 110px;
+				right: 65px;
+			}
+			input{
+				width: 90px;
+				height: 30px;
+				border:1px solid red;
+				cursor: pointer;
+				background: #fff;
+				outline: none;
+				border-radius: 15px;
+				line-height: 30px;
+				font-size: 16px;
+				margin: 0 10px;
+			}
+			.p1{
+				position: absolute;
+				bottom: -30px;
+				left: 78px;
+			}
+			.span1{
+				position: absolute;
+				display: block;
+				bottom: -50px;
+				left: -8px;
+			}
+			.p2{
+				left: 180px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" id="btn1" value="上一组"/>
+			<input type="button" id="btn2" value="下一组"/>
+			<div id="box_left">
+				<img src="img/pic0.png" />
+				<p class="p1 p2" >第一组</p>
+				<span class="span1">1/4</span>
+			</div>
+			<div id="box_right">
+				<img src="img/pic4.png" />
+				<p class="p1">第二组</p>
+				<span class="span1">1/3</span>
+			</div>
+		</div>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			var arr1 = ["pic0.png","pic1.png","pic2.png","pic3.png"];
+			var arr2 = ["pic4.png","pic5.png","pic6.png"];
+			var m=0;
+			var n=0;
+			function run1 (){
+				$('#box_left img').attr('src','img/'+arr1[m]);
+				$('#box_left p').html('第一组第'+(m+1)+'张');
+				$('#box_left span').html(m+1+'/'+arr1.length);
+			}
+			run1();
+			function run2 (){
+				$('#box_right img').attr('src','img/'+arr2[n]);
+				$('#box_right p').html('第二组第'+(n+1)+'张');
+				$('#box_right span').html(n+1+'/'+arr2.length);
+			}
+			run2();
+			$('#btn1').click(function(){
+				m--;
+				if(m<0)m=arr1.length-1;
+				run1();
+				n--;
+				if(n<0)n=arr2.length-1;
+				run2();
+			})
+			$('#btn2').click(function(){
+				$('#box_left img').click();
+				$('#box_right img').click();
+			})
+			$('#box_left img').click(function(){
+				m++;
+				if(m>arr1.length-1)m=0;
+				run1();
+			})
+			$('#box_right img').click(function(){
+				n++;
+				if(n>arr2.length-1)n=0;
+				run2();
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	#box{
+		width: 875px;
+		height: 553px;
+		background: url(img/pic.png) no-repeat;
+		margin: 100px auto 0;
+		position: relative;
+	}
+	body{
+		font-size: 12px;
+		font-family: "微软雅黑";
+	}
+	img{
+		position: absolute;
+		top: 114px;
+		height: 245px;
+		cursor: pointer;
+	}
+	#box img:nth-of-type(1){
+		width:448px;
+		left: 50px;
+	}
+	#box img:nth-of-type(2){
+		width: 248px;
+		left:560px;
+	}
+	span{
+		position: absolute;
+		bottom: 145px;
+		font-weight: bold;
+	}
+	#box span:nth-of-type(1){
+		left: 50px;
+	}
+	#box span:nth-of-type(2){
+		right: 298px;
+	}
+	a{
+		position: absolute;
+		top:40px;
+		width: 60px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		text-decoration: none;
+		color: #000;
+		padding: 2px;
+		border: 1px solid red;
+		border-radius: 12px;
+	}
+	#box a:nth-of-type(1){
+		left:30px;
+	}
+	#box a:nth-of-type(2){
+		left: 120px;
+	}
+	p{
+		height: 20px;
+		width: 200px;
+		position: absolute;
+		bottom: 150px;
+		text-align: center;
+	}
+	#box p:nth-of-type(1){
+		left: 158px;
+	}	
+	#box p:nth-of-type(2){
+		width: 130px;
+		left: 630px;
+	}
+</style>
+</head>
+
+<body>
+	<div id="box">
+		<a href="javascript:;" class="prev">上一组</a>
+		<a href="javascript:;" class="next">下一组</a>
+		<img src="img/pic0.png" class="left" />
+		<img src="img/pic4.png" class="right"/>
+		<span class="left_span"></span>
+		<span class="right_span"></span>
+		<p class="left_p"></p>
+		<p class="right_p"></p>
+	</div>
+<script type="text/javascript">
+	function imgchange(id){
+		this.box=document.getElementById(id);
+		this.m=0;
+		this.n=0;
+		this.arr1=['img/pic0.png','img/pic1.png','img/pic2.png','img/pic3.png'];
+		this.arr2=['img/pic4.png','img/pic5.png','img/pic6.png'];
+		this.img_left=this.box.getElementsByTagName('img')[0];
+		this.img_right=this.box.getElementsByTagName('img')[1];
+		this.prev=this.box.getElementsByTagName('a')[0];
+		this.next=this.box.getElementsByTagName('a')[1];
+		this.ps=this.box.getElementsByTagName('p');
+		this.spans=this.box.getElementsByTagName('span');
+	}
+	imgchange.prototype.run1=function (){
+		this.img_left.src = this.arr1[this.n];
+		this.ps[0].innerHTML = '第一组第'+(this.n+1)+'张';
+		this.spans[0].innerHTML = this.n+1+'/'+this.arr1.length;
+	}
+	imgchange.prototype.run2=function (){
+		this.img_right.src = this.arr2[this.m];
+		this.ps[1].innerHTML = '第二组第'+(this.m+1)+'张';
+		this.spans[1].innerHTML = this.m+1+'/'+this.arr2.length;
+	}
+	//绑定点击事件
+	imgchange.prototype.Event=function(){
+		    var _this=this;
+			this.img_right.onclick=function(){
+		    	_this.Imgright(_this);
+    			a.run2()
+	    	}
+			this.img_left.onclick=function(){
+		    	_this.Imgleft(_this);
+    			a.run1()
+	    	}
+			this.next.onclick=function(){
+		    	_this.Imgright(_this);
+		    	_this.Imgleft(_this);
+		    	a.run1()
+    			a.run2()
+	    	}
+			this.prev.onclick=function(){
+		    	_this.Prev(_this);
+		    	a.run1()
+    			a.run2()
+	    	}
+	};
+	imgchange.prototype.Imgright=function(this1){
+		this1.m++;
+    	if(this1.m==this1.arr2.length)this1.m=0;
+    	this1.img_right.src=this1.arr2[this1.m];
+	}
+	imgchange.prototype.Imgleft=function(this2){
+		this2.n++;
+    	if(this2.n==this2.arr1.length)this2.n=0;
+    	this2.img_left.src=this2.arr1[this2.n];
+	}
+	imgchange.prototype.Prev=function(that){
+		that.m--;
+    	if(that.m<0)that.m=that.arr2.length-1;
+    	that.img_right.src=that.arr2[that.m];
+    	that.n--;
+    	if(that.n<0)that.n=that.arr1.length-1;
+    	that.img_left.src=that.arr1[that.n];
+	}
+    var a=new imgchange('box');
+    a.Event()
+	a.run1()
+    a.run2()
+</script>
+</body>
+</html>
