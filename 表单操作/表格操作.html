@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: "微软雅黑";
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background: url(img/bg.jpg) no-repeat center 0;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+input {
+	outline: none;
+}
+table {
+	border-collapse: collapse;
+	border: #bbb;
+}
+.tBody {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 100px;
+	padding: 20px 30px 40px;
+	background-color: rgba(255,255,255,.6);
+	border-radius: 16px;
+}
+.title {
+	text-align: center;
+	color: #fca113;
+	text-shadow: 0 0 2px #fcf913;
+	line-height: 50px;
+}
+table {
+	background-color: #fff;
+}
+th {
+	background-color: #ddd;
+}
+tr {
+	height: 40px;
+}
+ul {
+	width: 600px;
+}
+td{
+	text-align: center;
+}
+td input[type="button"] {
+	margin: 0 2px;
+	width: 50px;
+	height: 26px;
+	border-radius: 4px;
+	border: 1px solid #000;
+	background: #fff;
+	box-shadow: 3px 3px 3px #ccc;
+}
+li {
+	padding: 10px 0;
+	overflow: hidden;
+	height: 40px;
+}
+label {
+	display: inline-block;
+	float: left;
+	margin-left: 50px;
+	line-height: 40px;
+}
+input[type="text"] {
+	border: 1px solid #ccc;
+	width: 110px;
+	height: 26px;
+	padding-left: 10px;
+	border-radius: 4px;
+}
+.addPre .focus{
+	border: 1px solid orangered;
+}
+.addPre input[type="button"]{
+	float: left;
+	margin-left: 50px;
+	margin-top: 8px;
+	border: 1px solid #000;
+	width: 60px;
+	height: 26px;
+	box-sizing: content-box;
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 3px 3px 3px #ccc;
+}
+.addNext span{
+	float: left;
+	margin-left: 50px;
+	display: block;
+	line-height: 40px;
+}
+.addNext select{
+	float: left;
+	margin-left: 40px;
+	margin-top: 8px;
+	padding-left: 6px;
+	border: 1px solid #000;
+	width: 80px;
+	height: 26px;
+	box-sizing: content-box;
+	outline: none;
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 3px 3px 3px #ccc;
+}
+.addNext input{
+	float: left;
+	margin-left: 30px;
+	margin-top: 8px;
+	border: 1px solid #000;
+	width: 80px;
+	height: 26px;
+	box-sizing: content-box;
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 3px 3px 3px #ccc;
+}
+/*.active {
+	background-color: #f7cb75;
+}*/
+/*#tab tbody tr:hover {
+	background-color: #f7cb75;
+}*/
+</style>
+</head>
+<body>
+<section class="tBody">
+	<ul id="header">
+		<li class="addPre">
+			<label>名字： <input type="text" placeholder="请输入名字"/></label>
+			<label>年龄： <input type="text" placeholder="请输入年龄"/></label>
+			<input type="button" value="添加" />
+		</li>
+		<li class="addNext">
+			<span>排序</span>
+			<select>
+				<option value="price">年龄</option>
+				<option value="id">编号</option>
+			</select>
+			<select>
+				<option value='1'>从高到底</option>
+				<option value='2'>从低到高</option>
+			</select>
+			<input type="button" value="提交" />
+			<input type="button" value="批量删除" />
+		</li>
+	</ul>
+	<table id="tab" width="600" align="center" border="1">
+		<thead>
+			<th>全选<input type="checkbox" id="checkAll" style="margin-left: 6px;"></th>
+			<th index="id">编号</th>
+			<th>商品</th>
+			<th index="price">年龄</th>
+			<th>操作</th>
+		</thead>
+		<tbody>
+			<!--<tr>
+				<td><input type="checkbox"></td>
+				<td>1</td>
+				<td>露露</td>
+				<td>12</td>
+				<td>
+					<input type="button" value="上移"/>
+					<input type="button" value="下移"/>
+					<input type="button" value="删除"/>
+				</td>
+			</tr>-->
+		</tbody>
+	</table>
+</section>
+</body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+	var data = [
+		    {
+		        'id' : 1,
+		        'name' : 'momo',
+		        'price' : 36
+		    },
+		    {
+		        'id' : 2,
+		        'name' : '小恋',
+		        'price' : 40
+		    },
+		    {
+		        'id' : 3,
+		        'name' : 'yaya',
+		        'price' : 20
+		    },
+		    {
+		        'id' : 4,
+		        'name' : 'feifei',
+		        'price' : 10
+		    },
+		    {
+		        'id' : 5,
+		        'name' : 'hhehe',
+		        'price' : 35
+		    }
+		];
+	$(function(){
+		$('input[type="text"]').focus(function(){
+			$(this).addClass('focus');
+		}).blur(function(){
+			$(this).removeClass('focus');
+		})
+	})
+  	function show(obj){
+		let tr = $(`<tr></tr>`)
+		$('tbody').append(tr);
+		let td1 = $(`<td><input type="checkbox"></td>
+					<td>${obj.id}</td>
+					<td>${obj.name}</td>
+					<td>${obj.price}</td>`);
+		$(tr).append(td1);
+		let td2 = $(`<td>
+						<input type="button" value="上移"/>
+						<input type="button" value="下移"/>
+						<input type="button" value="删除"/>
+					</td>`);
+		$(tr).append(td2);
+		let inp = $(tr).find('input[type="checkbox"]')
+		//console.log(inp)
+		$(inp).click(function(){
+			checkAll();
+		})
+		let prev = $(tr).find('input[type="button"]').eq(0)
+		let next = $(tr).find('input[type="button"]').eq(1)
+		let del = $(tr).find('input[type="button"]').eq(2)
+		//console.log(prev,next)
+		$(prev).click(function(){
+			//alert(1)
+			let a = $(tr).prev();
+			if(a)$(tr).insertBefore(a);
+		})
+		$(next).click(function(){
+			//alert(2)
+			let b = $(tr).next();
+			if(b)$(b).insertBefore(tr);
+		})
+		$(del).click(function(){
+			//alert(3)
+			$(tr).remove();
+			for(var i=0;i<data.length;i++){
+        		if(obj.id == data[i].id){
+        			data.splice(i,1);
+        		}
+        	}
+			checkAll();
+			console.log(data)
+		})
+  	}
+	$(data).each(function(i,e){
+		//i：索引值  e：数组每项
+		show(e);
+	})
+	//判断全选
+	function checkAll(){
+		let inps = $('tbody').find('input[type="checkbox"]');
+    	let m = 0;
+    	for(var i=0;i<inps.length;i++){
+    		if(inps[i].checked){
+    			m++;
+    		}
+    	}
+    	console.log(m)
+    	if(m == inps.length){
+    		$('thead').find('input').prop('checked',true);
+    	}else{
+    		$('thead').find('input').prop('checked',false);
+    	}
+    	if(m==0){
+			$('thead').find('input').prop('checked',false);
+		}
+    }
+	//全选
+	$('thead').find('input').click(function(){
+		if($('thead').find('input[type="checkbox"]').prop('checked')){
+			$('tbody').find('input[type="checkbox"]').prop('checked',true);
+		}else{
+			$('tbody').find('input[type="checkbox"]').prop('checked',false);
+		}
+	})
+	//批量删除
+	$('#header').find('input[type="button"]').eq(2).click(function(){
+		let inps = $('tbody').find('input[type="checkbox"]');
+		for(var i=0;i<inps.length;i++){
+			let td = $(inps[i]).closest('td').next();
+			console.log($(td).text())
+    		if(inps[i].checked){
+    			$(inps[i]).closest('tr').remove()
+    			for(var j=0;j<data.length;j++){
+	        		if($(td).text()== data[j].id){
+	        			data.splice(j,1);
+	        		}
+				}
+				// 没有用到i--
+    		}
+    	}
+//		if(data.length==0){
+//			$('thead').find('input').prop('checked',false);
+//		}
+		checkAll()
+		console.log(data)
+	})
+	// 添加数据
+	var max = maxId(data);
+    //console.log(max)
+    function maxId(data){
+    	var max = 0;
+    	data.forEach(function(a){
+    		if(a.id>max){
+    			max = a.id;
+    		}
+    	});
+    	return max;
+    }
+	$('#header').find('input[type="button"]').eq(0).click(function(){
+		let inps = $('tbody').find('input[type="checkbox"]');
+		let id = ++max;
+		let name = $('#header').find('input[type="text"]').eq(0).val();
+		let price = $('#header').find('input[type="text"]').eq(1).val();
+		console.log(id,name,price)
+		//数字字母下划线  中文
+		let re1 = /^\w{3,15}$|^[\u4e00-\u9fa5]{2,10}$/;
+		//0-108
+		let re2 = /^[0-9]$|^[1-9][0-9]$|^10[0-8]$/;
+		if(re1.test(name)&&re2.test(price)){
+			let j = {
+	    		id:id,
+	    		name:name,
+	    		price:price
+	    	}
+			data.push(j);
+			show(j);
+    		checkAll();
+		}else{
+			alert('请输入正确内容~~~')
+		}
+	})
+	$('#header').find('input[type="button"]').eq(1).click(function(){
+		//alert(1)
+		$('tbody').text('')
+		let select1 = $('select').eq(0).val();
+		let select2 = $('select').eq(1).val();
+		console.log(select1,select2)
+		data.sort(function(a,b){
+			if(select1=='price'){
+				if(select2==1){
+					return b.price-a.price;
+				}else if(select2==2){
+					return a.price-b.price;
+				}
+			}
+		})
+		data.sort(function(a,b){
+			if(select1=='id'){
+				if(select2==1){
+					return b.id-a.id;
+				}else if(select2==2){
+					return a.id-b.id;
+				}
+			}
+		})
+		data.forEach(function(a){
+    		show(a)
+    	})
+	})
+</script>
+</html>
