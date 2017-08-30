@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#sec{
+				position: relative;
+				width: 500px;
+			}
+			#inp{
+				width: 500px;
+				height: 60px;
+				font-size: 26px;
+				border: 1px solid #000;
+				border-radius: 10px;
+				outline: none;
+				padding: 0 20px;
+				box-sizing: border-box;
+			}
+			#box{
+				width: 120px;
+				height: 40px;
+				border-radius: 20px;
+				position: absolute;
+				line-height: 40px;
+				font-size: 26px;
+				overflow: hidden;
+				top: 10px;
+				right: 20px;
+			}
+			#bg{
+				background: #f5f5f5;
+				padding: 0 20px;
+				text-align: right;
+				color: #666;
+			}
+			#con{
+				width: 34px;
+				height: 34px;
+				background: #fff;
+				border-radius: 50%;
+				position: absolute;
+				top: 3px;
+				left: 3px;
+				transition: 0.3s;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="sec">
+			<input type="password" id="inp" placeholder="密码"/>
+			<div id="box">
+				<div id="bg">OFF</div>
+				<div id="con"></div>
+			</div>
+		</section>
+		<script type="text/javascript">
+			var box = document.getElementById('box')
+			var con = document.getElementById('con')
+			var bg = document.getElementById('bg')
+			var inp = document.getElementById('inp')
+			var a = parseFloat(getComputedStyle(box).width)-parseFloat(getComputedStyle(con).width)-3;
+			var onoff = true;
+			box.onclick = function(){
+				if(onoff){
+					con.style.left = a+'px';
+					bg.style.backgroundColor = '#00d762';
+					bg.style.textAlign = 'left';
+					bg.style.color = '#fff';
+					bg.innerHTML = 'ON';
+					inp.type = 'text';
+				}else{
+					con.style.left = '3px';
+					bg.style.backgroundColor = '#f5f5f5';
+					bg.style.textAlign = 'right';
+					bg.style.color = '#666';
+					bg.innerHTML = 'OFF';
+					inp.type = 'password';
+				}
+				onoff = !onoff;
+			}
+			console.log(a)
+		</script>
+	</body>
+</html>
