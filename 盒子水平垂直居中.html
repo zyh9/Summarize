@@ -45,9 +45,6 @@
 		            position: absolute;
 		            top: 50%;
 		            left: 50%;
-		            border-radius: 5px;
-		            -webkit-transform: translate(-50%, -50%);
-		            -moz-transform: translate(-50%, -50%);
 		            transform: translate(-50%, -50%);
 		       	}
 
@@ -59,14 +56,13 @@
 				</div>
 				
 				.wrapper {
-		            width: 500px;
-		            height: 300px;
+		            padding: 20px;
 		            background: orange;
 		            color: #fff;
 		            /*只需要在父元素上加这三条*/
 		            justify-content: center; /*子元素水平居中*/
 		            align-items: center; /*子元素垂直居中*/
-		            display: -webkit-flex;
+		            display: flex; /*弹性盒模型*/
 		       	}
  
 
