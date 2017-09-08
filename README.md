@@ -1,9 +1,10 @@
 ﻿# 辉辉的个人总结
 
-## 盒子水平垂直居中（4种方法）
+## 盒子水平垂直居中（5种方法）
 
 > 一、盒子没有固定的宽和高
 ```
+
 	1、transforms 变形
 
 		这是最简单的方法，不仅能实现绝对居中同样的效果，
@@ -61,6 +62,24 @@
         justify-content: center; /*子元素水平居中*/
         align-items: center; /*子元素垂直居中*/
         display: flex; /*弹性盒模型*/
+        
+        
+    3、在父级元素上面添加一条样式，子级元素上面添加一条样式，就可以实现子元素水平垂直居中。
+				
+		<div class="wrapper">
+			我不知道我的宽度和高是多少，我要实现水平垂直居中。
+		</div>
+       
+		.wrapper {
+            padding: 20px;
+            background: orange;
+            color: #fff;
+            /*添加这条样式*/
+            margin:auto;
+       	}
+       	
+       	/*只需要在父元素上加这一条*/
+        display: flex; /*弹性盒模型*/
 ```
 
 > 二、盒子有固定的宽和高
@@ -94,6 +113,7 @@
             margin-top: -10px;
             margin-left: -200px;
        	}
+       
        	
  	2、margin:auto实现绝对定位元素的居中（该方法兼容ie8以上浏览器）
 
@@ -125,56 +145,81 @@
 ```
     <!DOCTYPE html>
     <html>
-      <head>
-        <meta charset="utf-8">
-        <title></title>
-        <style>
-          *{
-            margin: 0;
-            padding: 0;
-          }
-          
-          /*方法2：适用于宽高不固定的情况*/
-          /*body{
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }*/
-          
-          #box{
-            width: 100px;
-            height: 100px;
-            background: red;
-            
-            /*方法1：适用于宽高不固定的情况*/
-            /*position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);*/
-            
-            /*方法3：适用于宽高固定的情况*/
-            /*position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-left: -50px;
-            margin-top: -50px;*/
-            
-            /*方法4：适用于宽高固定的情况*/
-            /*position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;*/
-          }
-        </style>
-      </head>
-      <body>
-        <div id="box"></div>
-      </body>
+        <head>
+            <meta charset="utf-8">
+            <title></title>
+            <style>
+                *{
+                    margin: 0;
+                    padding: 0;
+                }
+              
+                /*方法1:适用于宽高固定的情况*/
+                /*#box{
+                    width: 100px;
+                    height: 100px;
+                    background: red;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    margin-left: -50px;
+                    margin-top: -50px;
+                }*/
+              
+                /*方法2:适用于宽高固定的情况*/
+                /*#box{
+                    width: 100px;
+                    height: 100px;
+                    background: red;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                }*/
+              
+                /*方法3:适用于宽高不固定的情况*/
+                /*#box{
+                    padding: 50px;
+                    background: red;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
+                }*/
+              
+                /*方法4:适用于宽高不固定的情况*/
+                /*body{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                #box{
+                    padding: 50px;
+                    background: red;
+                }*/
+              
+         	    /*方法5:适用于宽高不固定的情况*/
+                /*body{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    display: flex;
+                }
+                #box{
+                    padding: 50px;
+                    background: red;
+                    margin: auto;
+                }*/
+            </style>
+        </head>
+        <body>
+            <div id="box"></div>
+        </body>
     </html>
 ```
 
