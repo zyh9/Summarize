@@ -65,7 +65,23 @@
 		            justify-content: center; /*子元素水平居中*/
 		            align-items: center; /*子元素垂直居中*/
 		            display: flex; /*弹性盒模型*/
-
+				3、在父级元素上面添加一条样式，子级元素上面添加一条样式，就可以实现子元素水平垂直居中。
+				
+					<div class="wrapper">
+	        			我不知道我的宽度和高是多少，我要实现水平垂直居中。
+					</div>
+		           
+					.wrapper {
+			            padding: 20px;
+			            background: orange;
+			            color: #fff;
+			            /*添加这条样式*/
+			            margin:auto;
+			       	}
+			       	
+			       	/*只需要在父元素上加这一条*/
+		            display: flex; /*弹性盒模型*/
+				
 			二、盒子有固定的宽和高
 	
 				1、margin 负间距
