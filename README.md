@@ -52,7 +52,7 @@
 			我不知道我的宽度和高度是多少，我要实现水平垂直居中。
 		</div>
         
-            .wrapper {
+                .wrapper {
                     padding: 20px;
                     background: orange;
                     color: #fff;
@@ -70,7 +70,7 @@
 			我不知道我的宽度和高度是多少，我要实现水平垂直居中。
 		</div>
         
-            .wrapper {
+                .wrapper {
                     padding: 20px;
                     background: orange;
                     color: #fff;
