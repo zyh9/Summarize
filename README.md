@@ -36,14 +36,14 @@
 		</div>
 		
 		.wrapper {
-            padding: 20px;
-            background: orange;
-            color: #fff;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-       	}
+                padding: 20px;
+                background: orange;
+                color: #fff;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+           	}
 
 
 	2、在父级元素上面加上上面3条样式，就可以实现子元素水平垂直居中。
@@ -53,10 +53,10 @@
 		</div>
        
        .wrapper {
-            padding: 20px;
-            background: orange;
-            color: #fff;
-       	}
+                padding: 20px;
+                background: orange;
+                color: #fff;
+           	}
        	
        	/*只需要在父元素上加这三条*/
         justify-content: center; /*子元素水平居中*/
@@ -71,12 +71,12 @@
 		</div>
        
        .wrapper {
-            padding: 20px;
-            background: orange;
-            color: #fff;
-            /*添加这条样式*/
-            margin:auto;
-       	}
+                padding: 20px;
+                background: orange;
+                color: #fff;
+                /*添加这条样式*/
+                margin:auto;
+           	}
        	
        	/*只需要在父元素上加这一条*/
         display: flex; /*弹性盒模型*/
@@ -102,17 +102,17 @@
 		</div>
 		
 		.wrapper {
-            width: 400px;
-            height: 20px;
-            padding: 20px;
-            background: orange;
-            color: #fff;
-            position: absolute;
-            top:50%;
-            left:50%;
-            margin-top: -10px;
-            margin-left: -200px;
-       	}
+                width: 400px;
+                height: 20px;
+                padding: 20px;
+                background: orange;
+                color: #fff;
+                position: absolute;
+                top:50%;
+                left:50%;
+                margin-top: -10px;
+                margin-left: -200px;
+           	}
        
        	
  	2、margin:auto实现绝对定位元素的居中（该方法兼容ie8以上浏览器）
@@ -128,18 +128,18 @@
 		</div>
 		
 		.wrapper {
-            width: 400px;
-            height: 20px;
-            padding:20px;
-            background: orange;
-            color: #fff;
-            position: absolute;
-            left:0;
-            right:0;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-       }
+                width: 400px;
+                height: 20px;
+                padding:20px;
+                background: orange;
+                color: #fff;
+                position: absolute;
+                left:0;
+                right:0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+           }
 ```
 
 > 代码举例
