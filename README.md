@@ -52,11 +52,11 @@
 			我不知道我的宽度和高度是多少，我要实现水平垂直居中。
 		</div>
         
-                .wrapper {
-                    padding: 20px;
-                    background: orange;
-                    color: #fff;
-               	}
+        .wrapper {
+            padding: 20px;
+            background: orange;
+            color: #fff;
+        }
        	
        	/*只需要在父元素上加这三条*/
         justify-content: center; /*子元素水平居中*/
@@ -70,13 +70,13 @@
 			我不知道我的宽度和高度是多少，我要实现水平垂直居中。
 		</div>
         
-                .wrapper {
-                    padding: 20px;
-                    background: orange;
-                    color: #fff;
-                    /*添加这条样式*/
-                    margin:auto;
-               	}
+        .wrapper {
+            padding: 20px;
+            background: orange;
+            color: #fff;
+            /*添加这条样式*/
+            margin:auto;
+        }
        	
        	/*只需要在父元素上加这一条*/
         display: flex; /*弹性盒模型*/
