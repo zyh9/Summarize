@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//时间转换
+			var s = '20170914010203';
+			s = s.replace(/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})$/g,'$1年$2月$3日$4时$5分$6秒')
+			console.log(s)
+			
+			//手机号纯正则替换
+			var t = '13160673837';
+			//t.match(/^(\d{3})(\d{4})(\d{4})$/);
+			var tmp = t.match(/^(\d{3})(\d{4})(\d{4})$/)[2];
+			t = t.replace(new RegExp(tmp), '****')
+			console.log(t)
+		</script>
+	</body>
+</html>
