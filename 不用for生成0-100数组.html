@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [];
+			var num = 0;
+			function fn(n) {
+			    if (n==100)return;
+			    arr.push(n);
+			    n++;
+			    fn(n)
+			}
+			fn(num)
+			console.log(arr)
+		</script>
+	</body>
+</html>
