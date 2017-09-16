@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//去前后中空格
+			var str = '      ab   cd      ';
+			var str2 = '';
+			for(var i=0;i<str.length;i++){
+				if(str[i]!=' '){
+					str2+=str[i]
+				}
+			}
+			console.log(str2)
+			//去前后空格
+			var a = str.replace(/^\s+|\s+$/g,'')
+			console.log(a)
+		</script>
+	</body>
+</html>
