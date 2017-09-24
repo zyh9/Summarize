@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				求平均数
+			*/
+			let arr = [10,30,50,70];
+			let result = arr.reduce((addInit,item,index)=>{
+//				if(index!=arr.length-1){//不是最后一次
+//					return addInit+item;
+//				}else{//最后一次
+//					return (addInit+item)/arr.length;
+//				}
+				return index!=arr.length-1?addInit+item:(addInit+item)/arr.length;
+			})
+			console.log(result)
+		</script>
+	</body>
+</html>
