@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				100vw相对于浏览器的window.innerWidth
+				是浏览器的内部宽度，注意，滚动条宽度也计算在内
+				而100%是可用宽度，是不含滚动条的宽度
+				
+				这样的话，如果body的内容高度>可视区宽度，就会出现纵向滚动条和横向滚动条（横向显然不需要）
+				
+				解决方案1：
+					body{
+						overflow-x: hidden;		横向溢出隐藏，消灭横向滚动条
+					}
+					
+				解决方案2：
+					body{
+						overflow: hidden;		纵向、横向溢出隐藏，消灭纵向、横向滚动条（显然干掉太多东西了）
+						overflow-y: auto;		纵向溢出提供滚动机制（完美解决）
+					}
+							
+			*/
+		</script>
+	</body>
+</html>
