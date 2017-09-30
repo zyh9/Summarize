@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				修改XAMPP的默认网站目录
+					依次找到：XAMPP的安装目录(比如C:\\xampp)\apache\conf\httpd.conf
+					用记事本或notepad等工具打开httpd.conf
+					找到DocumentRoot "(比如C:/xampp/php/)"
+					将其路径修改为自己设置的路径DocumentRoot "C:/xampp/php/www"（前提是要创建好www的文件夹）
+					
+				修改XAMPP的默认80端口
+					依次找到：XAMPP的安装目录(比如C:\\xampp)\apache\conf\httpd.conf
+					用记事本或notepad等工具打开httpd.conf
+					找到第Listen 80，ServerName localhost:80
+					将其修改为Listen 8081，ServerName localhost:8081保存
+					停止Apache服务重启后，在浏览器中输入：http://localhost:8081/即可
+			*/
+		</script>
+	</body>
+</html>
