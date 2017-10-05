@@ -200,7 +200,7 @@
 		
 		hack2:min-height:value; height:auto!important; height:value;(建议使用)
 
-### 二十三、怎样使一个宽为200px和高为200px的盒子，水平垂直居中于浏览器中?写出CSS样式代码
+### 二十三、怎样使一个宽为200px和高为200px的盒子，水平垂直居中于浏览器中?
 
 		box{
 			width:200px;
