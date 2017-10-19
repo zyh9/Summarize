@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				当对象为数组时，变量指的是数组的索引
+				当对象为对象时，变量指的是对象的属性
+			*/
+		      var arr = ["a", "b", "2", "3", "c"];
+		      var result = ("b" in arr);
+		      var result1 = (4 in arr);
+		      console.log(result, result1); //false true
+		      
+		      var obj = {w: "ww",j: "jj",b: "bb"};
+		      var result2 = (2 in obj);
+		      var result3 = ("j" in obj);
+		      console.log(result2,result3); //false true
+		</script>
+	</body>
+</html>
