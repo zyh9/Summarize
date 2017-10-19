@@ -29,6 +29,9 @@
 			  return prev
 			},{});
 			console.log(count)
+			
+			let a = arr.reduce((prev,now)=>(prev[now]++ || (prev[now] = 1),prev),{})
+			console.log(a)
 		</script>
 	</body>
 </html>
