@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>111</div>
+		<div>222</div>
+		<script type="text/javascript">
+			let div = document.getElementsByTagName('div');
+			div[0].onclick = function(){
+				history.pushState(null,document.title = '111','/push111')
+			}
+			div[1].onclick = function(){
+				history.replaceState(null,document.title = '222','/replace222')
+			}
+		</script>
+	</body>
+</html>
